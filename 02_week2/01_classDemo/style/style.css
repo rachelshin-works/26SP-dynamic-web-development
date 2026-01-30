@@ -1,0 +1,62 @@
+/* add rules via a selector and properties */
+/* we can use any html element as the selector */
+/* body is a selector and elements inside are properties */
+/* css = cascading style sheets */
+/* the more specific the selector, the higher priority it has */
+/* element < class < id -> the order of priority */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: bisque;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+}
+
+/* using elemnts selector will grab all of the elements on the page */
+p {
+  font-size: 24px;
+}
+
+/* class selector */
+/* NO SPACE -> important syntax */
+.blue-text {
+  color: blue;
+}
+
+#howdy {
+  font-size: 32px;
+  color: tomato;
+  background-color: lime;
+  font-weight: bold;
+  border: black 2px solid;
+  padding: 16px;
+
+  #big {
+    font-size: 64px;
+  }
+}
+
+/* block level elements take up the full width available -> vertical alignment */
+/* span is inline element aligned horizontally -> only as wide as a content holds */
+/* content - padding - border(the edge of the box) */
+
+.parent {
+  height: 400px;
+  background-color: lightgray;
+  display:flex;
+  align-items: center;;
+  justify-content: center;
+}
+
+.child {
+  height:100px;
+  width:100px;
+  background-color: rgb(144, 0, 255);
+  margin: 20px;
+  
+}
