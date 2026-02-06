@@ -11,6 +11,57 @@ let accumulatedRotationX = 0;
 let accumulatedRotationY = 0;
 let isDragging = false;
 
+//target location
+let userLat = null;
+let userLng = null;
+let compass = 0;
+const targetLat = 40.71695;
+const targetLng = -73.99885;
+
+//getting geolocation
+navigator.geolocation.watchPosition(
+  (position) => {
+    userLat = position.coords.latitude;
+    userLng = position.coords.longitude;
+    updateRotation(); // Update rotation when position changes
+  },
+  (error) => {
+    console.error("Geolocation error:", error);
+  },
+);
+
+//calcutating bearing
+function calculateBearing(lat1, lng1, lat2, lng2) {
+  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const lat1Rad = (lat1 * Math.PI) / 180;
+  const lat2Rad = (lat2 * Math.PI) / 180;
+
+  const x = Math.sin(dLng) * Math.cos(lat2Rad);
+  const y = Math.cos(lat1Rad) * Math.sin(lat2Rad) - Math.sin(lat1Rad) * Math.cos(lat2Rad) * Math.cos(dLng);
+
+  let bearing = (Math.atan2(x, y) * 180) / Math.PI;
+  return (bearing + 360) % 360; // 0-360도로 정규화
+}
+
+//device orientation api(mobile only)
+window.addEventListener("deviceorientation", (e) => {
+  if (e.alpha !== null) {
+    compass = e.alpha;
+    updateRotation(); // Update rotation when position changes
+  }
+});
+
+//calcutating rotation
+function updateRotation() {
+  if (userLat === null) return; // 위치 없으면 종료
+
+  const targetBearing = calculateBearing(userLat, userLng, targetLat, targetLng);
+  const rotation = targetBearing - compass;
+
+  // animate() 안에서 적용하거나 여기서 직접 적용
+  targetRotationY = rotation;
+}
+
 document.addEventListener("mousedown", (e) => {
   isDragging = true;
   lastMouseX = e.clientX;
