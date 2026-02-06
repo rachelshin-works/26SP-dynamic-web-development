@@ -4,9 +4,8 @@ $unit: 16px;
 
 @font-face {
   font-family: "ROADWAY_";
-  src: url("/02_week2/02_assignment/font/Roadway.ttf") format("truetype");
+  src: url("../font/Roadway.ttf") format("truetype");
   font-display: swap;
-  color: $grey;
 }
 
 // #preview-render {

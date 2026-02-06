@@ -40,7 +40,7 @@ function calculateBearing(lat1, lng1, lat2, lng2) {
   const y = Math.cos(lat1Rad) * Math.sin(lat2Rad) - Math.sin(lat1Rad) * Math.cos(lat2Rad) * Math.cos(dLng);
 
   let bearing = (Math.atan2(x, y) * 180) / Math.PI;
-  return (bearing + 360) % 360; // 0-360도로 정규화
+  return (bearing + 360) % 360; // 0-360
 }
 
 //device orientation api(mobile only)
