@@ -1,0 +1,12 @@
+#important {
+  color: lime;
+  background-color: black;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

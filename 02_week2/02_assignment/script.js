@@ -11,6 +11,8 @@ let accumulatedRotationX = 0;
 let accumulatedRotationY = 0;
 let isDragging = false;
 
+// --- geolocation and device orientation variables assisted by Claude --- //
+// --- prompt: is it possible to set a specific area and make a signage rotate towards the location? do not fix the code, suggest the possibility (in Korean) --- //
 //target location
 let userLat = null;
 let userLng = null;
@@ -53,12 +55,12 @@ window.addEventListener("deviceorientation", (e) => {
 
 //calcutating rotation
 function updateRotation() {
-  if (userLat === null) return; // 위치 없으면 종료
+  if (userLat === null) return; // end if geolocation is not available
 
   const targetBearing = calculateBearing(userLat, userLng, targetLat, targetLng);
   const rotation = targetBearing - compass;
 
-  // animate() 안에서 적용하거나 여기서 직접 적용
+  // apply either inside animate() or directly here
   targetRotationY = rotation;
 }
 
