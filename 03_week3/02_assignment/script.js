@@ -8,7 +8,7 @@ async function updateJellyCard() {
   const frontEl = document.querySelector(".front");
   const backEl = document.querySelector(".back");
   const svgEl = document.querySelector(".front img");
-  const textEls = backEl.querySelectorAll("p"); // back 안 모든 p 태그 선택
+  const textEls = backEl.querySelectorAll("p");
 
   const pick = () => {
     const randomBean = data.items[Math.floor(Math.random() * data.items.length)];
@@ -19,7 +19,6 @@ async function updateJellyCard() {
     frontEl.style.backgroundColor = randomBean.backgroundColor;
     backEl.style.backgroundColor = randomBean.backgroundColor;
 
-    // 밝기 계산
     const hex = randomBean.backgroundColor.replace("#", "");
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
@@ -27,14 +26,12 @@ async function updateJellyCard() {
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
     const textColor = brightness > 128 ? "#22223b" : "#f2e9e4";
 
-    // back 안 모든 p 태그에 직접 적용
     textEls.forEach((el) => (el.style.color = textColor));
 
-    // SVG 색상 변경 (어두운 배경이면 밝게, 밝은 배경이면 어둡게)
     if (brightness > 128) {
-      svgEl.style.filter = "brightness(0)"; // 어두운 색
+      svgEl.style.filter = "brightness(0)";
     } else {
-      svgEl.style.filter = "brightness(0) invert(1)"; // 밝은 색
+      svgEl.style.filter = "brightness(0) invert(1)";
     }
   };
 
