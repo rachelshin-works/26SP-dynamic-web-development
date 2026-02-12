@@ -1,3 +1,9 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .codystar-light {
   font-family: "Codystar", sans-serif;
   font-weight: 300;
@@ -23,11 +29,6 @@ body {
   color: #22223b;
   margin: 0;
   padding: 20px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 h1 {

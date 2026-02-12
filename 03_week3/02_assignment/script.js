@@ -24,7 +24,7 @@ async function updateJellyCard() {
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    const textColor = brightness > 128 ? "#22223b" : "#f2e9e4";
+    const textColor = brightness > 128 ? "#000" : "#fff";
 
     textEls.forEach((el) => (el.style.color = textColor));
 
