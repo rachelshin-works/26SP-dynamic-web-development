@@ -1,0 +1,123 @@
+.codystar-light {
+  font-family: "Codystar", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.codystar-regular {
+  font-family: "Codystar", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.coiny-regular {
+  font-family: "Coiny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-image: url('assets/background.png');
+  background-size: cover;
+  background-position: center;
+  color: #22223b;
+  margin: 0;
+  padding: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Codystar", system-ui;
+  color: #FFF;
+  -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #FFF;
+  font-size: 90px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: "Coiny", system-ui;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 582px;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotateY(180deg);
+}
+
+.top-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom-text {
+  text-align: right;
+}
+
+.header {
+  text-align: center;
+
+}
+
+.footer {
+  text-align: center;
+
+}
