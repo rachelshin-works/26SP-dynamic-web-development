@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>guestbook</title>
+  </head>
+  <body>
+    <!-- action is the location of the request -->
+    <form method="POST" action="/sign" enctype="text/plain">
+      <input type="text" name="guestname" />
+      <input type="text" name="message" />
+      <input type="submit" value="sign" />
+    </form>
+  </body>
+</html>
